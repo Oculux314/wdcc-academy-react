@@ -1,9 +1,25 @@
 import { initialTodos } from "./initialTodos";
 import ListItem from "./components/ListItem";
 import styles from "./App.module.css";
+import { useState } from "react";
+
+// React internals
+// let darkMode = true;
 
 export default function App() {
-  const darkMode = false;
+  const [darkMode, setDarkMode] = useState(false);
+
+  function toggleDarkMode() {
+    setDarkMode(!darkMode);
+
+    // darkMode = !darkMode;
+    // console.log(darkMode)
+    // root.render(
+    //   <React.StrictMode>
+    //     <App />
+    //   </React.StrictMode>
+    // );
+  }
 
   return (
     <div>
@@ -13,6 +29,7 @@ export default function App() {
           {initialTodos.map(function(todo) { return (<ListItem key={todo._id} todo={todo} />)})}
         </ul>
       </div>
+      <button onClick={toggleDarkMode}>Toggle Dark Mode</button>
     </div>
   );
 }
