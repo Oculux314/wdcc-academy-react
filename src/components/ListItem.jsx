@@ -1,10 +1,10 @@
 import styles from "./ListItem.module.css";
 
-export default function ListItem({todo}) {
+export default function ListItem({ todo, handleToggle }) {
   const className = todo.isComplete ? styles.strikeThrough : "";
 
   function handleClick() {
-    todo.isComplete = !todo.isComplete;
+    handleToggle(todo._id);
   }
 
   return (
